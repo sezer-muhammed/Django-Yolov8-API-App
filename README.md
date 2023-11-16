@@ -18,14 +18,13 @@ This project implements an object detection API using the YOLOv8 model, integrat
 pip install -r requirements.txt
 ```
 
-3. Configure the YOLOv8 model path in `yolov8_detector.py`.
-4. Run the Django migrations:
+3. Run the Django migrations:
 
 ```
 python manage.py migrate
 ```
 
-5. Start the Django server:
+4. Start the Django server:
 
 ```
 python manage.py runserver

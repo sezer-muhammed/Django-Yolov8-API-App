@@ -1,5 +1,5 @@
 *.pt
-db.sqlite3
+*.sqlite3
 images/
 
 # Created by https://www.toptal.com/developers/gitignore/api/python
