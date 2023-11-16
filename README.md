@@ -35,7 +35,7 @@ python manage.py runserver
 
 ### Uploading Images for Detection
 
-- Send a POST request to `/upload/` with the image file and the desired confidence threshold.
+- Send a POST request to `/yolov8/upload/` with the image file and the desired confidence threshold.
 - The API will return the detection results with labels, confidence scores, and bounding box coordinates.
 
 ### Admin Interface
