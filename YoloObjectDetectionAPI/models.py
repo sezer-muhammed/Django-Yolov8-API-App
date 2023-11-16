@@ -14,7 +14,7 @@ class ImageUpload(models.Model):
         (STATUS_FAILED, 'Failed'),
     ]
 
-    image_file = models.ImageField(upload_to='images/')
+    image_file = models.ImageField(upload_to='media/images/')
     upload_timestamp = models.DateTimeField(auto_now_add=True)
     confidence_threshold = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(1.0)])
     status = models.CharField(
