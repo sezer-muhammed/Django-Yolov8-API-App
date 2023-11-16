@@ -6,7 +6,7 @@ from .serializers import ImageUploadSerializer
 from .detection_models.yolov8 import YOLOv8Detector 
 
 class UploadImageView(APIView):
-    detector = YOLOv8Detector("yolov8n.pt")
+    detector = YOLOv8Detector("yolov8x.pt")
 
     def post(self, request, format=None):
         serializer = ImageUploadSerializer(data=request.data)
