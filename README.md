@@ -2,6 +2,8 @@
 
 This project implements an object detection API using the YOLOv8 model, integrated into a Django-based web application. It allows users to upload images and run object detection, returning detected objects with labels, confidence scores, and bounding box coordinates.
 
+Watch it here: https://youtu.be/xh0hZDpHU9o
+
 ## Features
 
 - **Image Upload**: Users can upload images for object detection.
