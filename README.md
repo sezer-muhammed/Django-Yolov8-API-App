@@ -1,87 +1,122 @@
-# YOLOv8 Object Detection API
+# YOLOv8 Object Detection API (Django + DRF)
+![Preview](https://bmeqhxsikltbwjf8.public.blob.vercel-storage.com/Screenshot%202025-08-13%20121354.png)
 
-This project implements an object detection API using the YOLOv8 model, integrated into a Django-based web application. It allows users to upload images and run object detection, returning detected objects with labels, confidence scores, and bounding box coordinates.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB)](#)
+[![Django](https://img.shields.io/badge/Django-4.x-092E20)](#)
+[![DRF](https://img.shields.io/badge/DRF-3.x-a30000)](#)
+[![YOLOv8](https://img.shields.io/badge/Ultralytics-YOLOv8-ffcc00)](https://docs.ultralytics.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![CI](https://img.shields.io/badge/CI-GitHub_Actions-inactive.svg)](#)
 
-Watch it here: https://youtu.be/xh0hZDpHU9o
+**Demo Video**
+[![Watch the demo](https://img.youtube.com/vi/xh0hZDpHU9o/maxresdefault.jpg)](https://youtu.be/xh0hZDpHU9o "YOLOv8 Object Detection API Demo")
+
+
+---
 
 ## Features
 
-- **Image Upload**: Users can upload images for object detection.
-- **Object Detection**: Utilizes YOLOv8 for efficient and accurate object detection.
-- **Admin Interface**: Django admin interface to view and manage image uploads and detections.
-- **RESTful API**: Provides an API endpoint for uploading images and retrieving detection results.
+* **Image Upload**: Upload images for object detection.
+* **Object Detection**: Uses YOLOv8 for high accuracy and efficiency.
+* **Admin Interface**: Manage uploads and detections via Django Admin.
+* **RESTful API**: Endpoints for uploading and retrieving detection results.
+
+---
 
 ## Installation
 
 1. Clone the repository.
-2. Install required dependencies:
+2. Install dependencies:
 
-```
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Apply migrations:
 
-3. Run the Django migrations:
+   ```bash
+   python manage.py migrate
+   ```
+4. Start server:
 
-```
-python manage.py migrate
-```
+   ```bash
+   python manage.py runserver
+   ```
 
-4. Start the Django server:
-
-```
-python manage.py runserver
-```
-
+---
 
 ## Usage
 
-### Uploading Images for Detection
+### Uploading Images
 
-- Send a POST request to `/yolov8/upload/` with the image file and the desired confidence threshold.
-- The API will return the detection results with labels, confidence scores, and bounding box coordinates.
+* Endpoint: `POST /yolov8/upload/`
+* Params: image file + confidence threshold
+* Response: Detected objects with labels, confidence scores, and bounding boxes
 
-### Admin Interface
+Example cURL:
 
-- Access the Django admin interface to manage and view uploaded images and their corresponding detection results.
+```bash
+curl -X POST http://localhost:8000/yolov8/upload/ \
+  -F "image=@test.jpg" \
+  -F "confidence=0.5"
+```
+
+---
+
+## Admin Interface
+
+* URL: `/admin/`
+* Manage: Uploaded images & detection results
+
+---
 
 ## API Endpoints
 
-- `POST /upload/`: Endpoint to upload images for object detection.
+* `POST /yolov8/upload/`: Upload image & run detection
+
+---
 
 ## Models
 
-- `ImageUpload`: Model to store image uploads, confidence thresholds, and status.
-- `Detections`: Model to store detection results for each uploaded image.
+* **ImageUpload**: Stores image file, confidence threshold, status
+* **Detections**: Stores label, score, bounding box per detection
+
+---
 
 ## Admin Models
 
-- `ImageUploadAdmin`: Admin model to manage image uploads.
-- `DetectionsAdmin`: Admin model to view and manage detection results.
+* **ImageUploadAdmin**: Manage image uploads
+* **DetectionsAdmin**: Manage detection results
+
+---
 
 ## Serializer
 
-- `ImageUploadSerializer`: Serializer for image upload data.
+* **ImageUploadSerializer**: Handles serialization for upload data
+
+---
 
 ## Views
 
-- `UploadImageView`: API view to handle image upload requests and run object detection.
+* **UploadImageView**: Processes upload requests & runs YOLOv8 detection
+
+---
 
 ## Dependencies
 
-- Django
-- djangorestframework
-- PyTorch
-- Ultralytics YOLOv8
+* Django
+* djangorestframework
+* PyTorch
+* Ultralytics YOLOv8
 
-## Contributing
-
-Contributions, issues, and feature requests are welcome!
+---
 
 ## License
 
-[MIT License](LICENSE)
+MIT License – see [LICENSE](LICENSE)
+
+---
 
 ## Acknowledgments
 
-- Ultralytics for the YOLOv8 model.
-- Django and DRF teams for the web framework and API toolkit.
+* Ultralytics (YOLOv8)
+* Django & DRF teams
